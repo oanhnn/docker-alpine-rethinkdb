@@ -25,7 +25,7 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 # Install Rethinkdb for Alpine Linux
 RUN apk --no-cache --update add rethinkdb su-exec \
  && apk --no-cache info -v | sed 's/-r\d*$//g' | sed 's/\(.*\)-/\1 /' > /etc/manifest.txt \
- && chmod 755 /usr/local/bin/docker-entrypoint \
+ && chmod a+x /usr/local/bin/docker-entrypoint \
  && mkdir data \
  && chown -R daemon:daemon /data
 
